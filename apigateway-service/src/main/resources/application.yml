@@ -1,0 +1,39 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defalutZone: http://127.0.0.1:8761/eureka
+
+spring:
+  application:
+    name: apigateway-service
+  cloud:
+    gateway:
+      routes:
+
+        - id: order-service
+          # 1. ?? microservice ????? ??
+          uri: http://127.0.0.1:8001
+
+          # 2. microService ?? ??
+          # 127.0.0.1:8000/order-service/** ? ????,
+          # -> 127.0.0.1:8001/oredr-serivce/** ? ???
+          predicates:
+            - Path=/order-service/**
+
+          # 3. ??? ?? ??
+          # ?? order-service ??, 127.0.0.1:8001 ? ??? ???
+          # /order-service? ???? ???? /order-service ??? ?? ?? ?? ???.
+          filters:
+            - RewritePath=/order-service/(?<path>.*), /$\{path}
+
+        - id: stock-service
+          uri: http://127.0.0.1:8002
+          predicates:
+            - Path=/stock-service/**
+          filters:
+            - RewritePath=/stock-service/(?<path>.*), /$\{path}
