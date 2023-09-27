@@ -1,19 +1,19 @@
-# Eureka Server ? 8761 ??? Expose
+# Eureka Server 를 8761 포트로 Expose
 server:
   port: 8761
 
-# Eureka MicorService ? ??? ?? (id)
+# Eureka MicorService 의 고유한 이름 (id)
 spring:
   application:
     name: discovery-service
 
-# Eureka Client ??
-# discovery-service? EurekaServer ??? ???, client ??? false ??? ?.
+# Eureka Client 설정
+# discovery-service로 EurekaServer 이므로 당연히, client 설정을 false 해줘야 함.
 eureka:
   client:
-    # ?? Server? Eureka Client ? ???? ?? -> fasle
+    # 현재 Server를 Eureka Client 로 등록하는 설정 -> fasle
     register-with-eureka: false
-    # ?? Server? Eureka Server??? ?????? ??? ????? ???? ?? ?? -> false
+    # 현재 Server가 Eureka Server로부터 인스턴스들의 정보를 주기적으로 가져올지 여부 설정 -> false
     fetch-registry: false
 
 

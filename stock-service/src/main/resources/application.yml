@@ -10,7 +10,5 @@ eureka:
     eureka:
     register-with-eureka: true
     fetch-registry:  true
-    # ??? Erueka Server(discovery-service) ? ??? ????
-    # Eurea Server? ? Eureka Client? ??
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka

@@ -16,18 +16,18 @@ spring:
       routes:
 
         - id: order-service
-          # 1. ?? microservice ????? ??
+          # 1. 실제 microservice 엔드포인트 지정
           uri: http://127.0.0.1:8001
 
-          # 2. microService ?? ??
-          # 127.0.0.1:8000/order-service/** ? ????,
-          # -> 127.0.0.1:8001/oredr-serivce/** ? ???
+          # 2. microService 경로 지정
+          # 127.0.0.1:8000/order-service/** 를 요청하면,
+          # -> 127.0.0.1:8001/oredr-serivce/** 로 라우팅
           predicates:
             - Path=/order-service/**
 
-          # 3. ??? ?? ??
-          # ?? order-service ??, 127.0.0.1:8001 ? ??? ???
-          # /order-service? ???? ???? /order-service ??? ?? ?? ?? ???.
+          # 3. 필요한 필터 지정
+          # 현재 order-service 경우, 127.0.0.1:8001 로 받아야 하므로
+          # /order-service로 들어오는 요청들을 /order-service 경로를 떼고 받는 필터 추가함.
           filters:
             - RewritePath=/order-service/(?<path>.*), /$\{path}
 
