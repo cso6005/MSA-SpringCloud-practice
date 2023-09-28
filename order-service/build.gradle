@@ -20,13 +20,17 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	// discovery server
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	// config client
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+	// Spring Cloud Bus + RabbitMQ
+	implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+	// Spring Boot actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

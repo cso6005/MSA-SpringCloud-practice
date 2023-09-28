@@ -12,6 +12,20 @@ spring:
   config:
     import: optional:configserver:http://127.0.0.1:8888 # Config Server 주소
 
+  # rabbitmq 설정 (config 자동 업데이트를 위해)
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+# actuator 를 이용하기 위해 endpoint의 busfresh 열기 (config 자동 업데이트를 위해)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
+
 eureka:
   client:
     register-with-eureka: true
