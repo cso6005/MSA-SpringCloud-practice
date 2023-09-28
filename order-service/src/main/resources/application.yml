@@ -5,6 +5,13 @@ spring:
   application:
     name: order-service
 
+  # cofing service 설정
+  cloud:
+    config:
+      name: order-service
+  config:
+    import: optional:configserver:http://127.0.0.1:8888 # Config Server 주소
+
 eureka:
   client:
     register-with-eureka: true
