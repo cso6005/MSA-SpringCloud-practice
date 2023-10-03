@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MSA-SpringCloud-practice.iml" filepath="$PROJECT_DIR$/.idea/MSA-SpringCloud-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stock-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/stock-service.main.iml" />
     </modules>
   </component>
 </project>

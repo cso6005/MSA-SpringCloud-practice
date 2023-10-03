@@ -5,12 +5,26 @@ spring:
   application:
     name: config-service
 
+  # rabbitmq 정보
+  # Spring Cloud Bus
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   cloud:
     config:
       server:
-        encrypt.enabled: true
+#        encrypt.enabled: true
         git:
           uri: https://github.com/cso6005/SpringCloud-config
           #username:
           #password:
 
+# Spring Cloud Actuator Bus Refresh 기능 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
